@@ -1,38 +1,107 @@
+body, * {
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  font-size: 24px;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.App main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.CircleSelector {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 200px;
+  width: 200px;
+  border: 4px solid purple;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.CircleSelector button {
+  height: 30px;
+  width: 185px;
+  background-color: purple;
   color: white;
+  border-radius: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  font-size: .9rem;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.CircleSelector button:hover {
+  background-color: limegreen;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/**
+  * Adding a class of 'selected' to the selected 
+  * button dynamically is secret sauce 
+  */
+.CircleSelector button.selected {
+  color: limegreen;
+  cursor: default;
+}
+
+.CircleSelector button.selected:hover {
+  color: purple;
+  cursor: default;
+}
+
+.Circles {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  border: 4px solid limegreen;
+  border-radius: 8px;
+}
+
+.Circles div {
+  height: 75px;
+  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: limegreen;
+  color: white;
+  font-size: 30px;
+  border: 5px solid limegreen;
+  border-radius: 50%;
+  margin: auto 10px;
+  cursor: pointer;
+}
+
+/* Another dose of dynamic className goodness is the winning ticket */
+.Circles div.selected {
+  cursor: default;
+  background-color: white;
+  color: purple;
+  border: 5px solid purple;
 }
